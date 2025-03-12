@@ -19,20 +19,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyinstaller -r requirements.txt
       - name: Build with PyInstaller using spec
-        working-directory: src/reacher
+        working-directory: src/core
         run: pyinstaller setup.spec
       - name: Install Inno Setup
         run: choco install innosetup
       - name: Build Installer
-        working-directory: src/reacher
+        working-directory: src/core
         run: |
-          dir  # Replaced 'ls' with 'dir' for Windows compatibility
+          dir
           iscc /O"dist" /F"reacher-dashboard-1.0-x64" setup.iss
       - name: Upload Windows installer
         uses: actions/upload-artifact@v4
         with:
           name: reacher-dashboard-1.0-x64.exe
-          path: src/reacher/dist/reacher-dashboard-1.0-x64.exe
+          path: src/core/dist/reacher-dashboard-1.0-x64.exe
 
   build-macos:
     runs-on: macos-latest
@@ -47,11 +47,11 @@ jobs:
           python3 -m pip install --upgrade pip
           pip3 install pyinstaller
       - name: Build with PyInstaller
-        working-directory: src/reacher
+        working-directory: src/core
         run: pyinstaller setup.spec
       - name: Create DMG
         run: |
-          hdiutil create -volname "REACHER Dashboard Installer" -srcfolder "src/reacher/dist/REACHER Dashboard.app" -ov -format UDZO reacher-dashboard-1.0-macos.dmg
+          hdiutil create -volname "REACHER Dashboard Installer" -srcfolder "src/core/dist/REACHER Dashboard.app" -ov -format UDZO reacher-dashboard-1.0-macos.dmg
       - name: Upload DMG
         uses: actions/upload-artifact@v4
         with:
@@ -68,11 +68,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          sudo apt install python3-tk
+        run: pip install -r requirements.txt
       - name: Build with PyInstaller using spec
-        working-directory: src/reacher
+        working-directory: src/core
         run: pyinstaller setup.spec
       - name: Create DEB structure
         run: |
@@ -87,7 +85,7 @@ jobs:
           Depends: python3 (>= 3.11), python3-tk
           Maintainer: Joshua Boquiren <boquiren@musc.edu>
           Description: REACHER Dashboard - A dashboard application" > reacher_dashboard_1.0_amd64/DEBIAN/control
-          cp -r src/reacher/dist/reacher-dashboard/* reacher_dashboard_1.0_amd64/opt/reacher-dashboard/
+          cp -r src/core/dist/reacher-dashboard/* reacher_dashboard_1.0_amd64/opt/reacher-dashboard/
           chmod +x reacher_dashboard_1.0_amd64/opt/reacher-dashboard/reacher-dashboard
           ln -s /opt/reacher-dashboard/reacher-dashboard reacher_dashboard_1.0_amd64/usr/local/bin/reacher-dashboard
       - name: Build DEB package
