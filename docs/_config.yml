@@ -1,0 +1,5 @@
+title: REACHER Suite
+description: Open-source hardware, firmware, and software for head-fixed mouse operant conditioning with two-photon calcium imaging
+baseurl: /REACHER-Suite
+url: https://otis-lab-musc.github.io
+markdown: kramdown

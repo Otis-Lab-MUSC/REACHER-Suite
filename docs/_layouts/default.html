@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="icon" href="{{ site.baseurl }}/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <button class="menu-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.sidebar').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="{{ site.baseurl }}/" class="site-title">REACHER Suite</a>
+        <p class="site-tagline">Otis Lab - MUSC</p>
+      </div>
+      {% include nav.html %}
+    </aside>
+
+    <main class="content">
+      <article>
+        {{ content }}
+      </article>
+    </main>
+  </div>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#0a1818',
+        primaryBorderColor: '#00E5FF',
+        primaryTextColor: '#c8e8e8',
+        lineColor: '#00E5FF',
+        secondaryColor: '#0d2626',
+        tertiaryColor: '#0a1818',
+        edgeLabelBackground: '#0a1818',
+        clusterBkg: '#0d2626',
+        clusterBorder: '#00E5FF',
+        titleColor: '#00E5FF',
+        nodeTextColor: '#c8e8e8'
+      }
+    });
+  </script>
+</body>
+</html>

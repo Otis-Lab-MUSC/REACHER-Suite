@@ -1,0 +1,22 @@
+<nav class="nav">
+  <ul>
+    <li><a href="{{ site.baseurl }}/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+    <li><a href="{{ site.baseurl }}/workflow" class="{% if page.url == '/workflow' or page.url == '/workflow/' %}active{% endif %}">Experimental Workflow</a></li>
+    <li><a href="{{ site.baseurl }}/getting-started" class="{% if page.url == '/getting-started' or page.url == '/getting-started/' %}active{% endif %}">Getting Started</a></li>
+  </ul>
+  <div class="nav-divider"></div>
+  <p class="nav-section-label">Repositories</p>
+  <ul>
+    <li><a href="{{ site.baseurl }}/reacher-firmware" class="{% if page.url == '/reacher-firmware' or page.url == '/reacher-firmware/' %}active{% endif %}">reacher-firmware</a></li>
+    <li><a href="{{ site.baseurl }}/reacher" class="{% if page.url == '/reacher' or page.url == '/reacher/' %}active{% endif %}">reacher</a></li>
+    <li><a href="{{ site.baseurl }}/labrynth" class="{% if page.url == '/labrynth' or page.url == '/labrynth/' %}active{% endif %}">labrynth</a></li>
+    <li><a href="{{ site.baseurl }}/pynapse" class="{% if page.url == '/pynapse' or page.url == '/pynapse/' %}active{% endif %}">pynapse</a></li>
+    <li><a href="{{ site.baseurl }}/axplorer" class="{% if page.url == '/axplorer' or page.url == '/axplorer/' %}active{% endif %}">axplorer</a></li>
+    <li><a href="{{ site.baseurl }}/roigbiv" class="{% if page.url == '/roigbiv' or page.url == '/roigbiv/' %}active{% endif %}">roigbiv</a></li>
+    <li><a href="{{ site.baseurl }}/reacher-hardware-models" class="{% if page.url == '/reacher-hardware-models' or page.url == '/reacher-hardware-models/' %}active{% endif %}">reacher-hardware-models</a></li>
+  </ul>
+  <div class="nav-divider"></div>
+  <ul>
+    <li><a href="https://github.com/Otis-Lab-MUSC" target="_blank" rel="noopener">GitHub Organization</a></li>
+  </ul>
+</nav>
