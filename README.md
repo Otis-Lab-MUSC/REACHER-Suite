@@ -1,8 +1,8 @@
-# REACHER Suite
+# REACHER Suite — Platform Overview
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue)](https://github.com/Otis-Lab-MUSC/REACHER-Suite)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.13-blue)](https://www.python.org)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Arduino%20UNO%20%7C%20Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)]()
 
 **Open-source hardware, firmware, and software for head-fixed mouse operant conditioning with two-photon calcium imaging**
