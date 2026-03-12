@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#00D4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Brain outline - left hemisphere -->
+  <path d="M32 12 C24 12 18 16 16 22 C14 28 14 34 18 40 C20 44 24 48 32 50" />
+  <!-- Brain outline - right hemisphere -->
+  <path d="M32 12 C40 12 46 16 48 22 C50 28 50 34 46 40 C44 44 40 48 32 50" />
+  <!-- Brain center line -->
+  <path d="M32 14 L32 48" stroke-dasharray="2 3" opacity="0.4" />
+  <!-- Brain folds left -->
+  <path d="M22 20 C26 22 28 26 26 30" opacity="0.5" />
+  <path d="M18 32 C22 30 26 32 24 36" opacity="0.5" />
+  <!-- Brain folds right -->
+  <path d="M42 20 C38 22 36 26 38 30" opacity="0.5" />
+  <path d="M46 32 C42 30 38 32 40 36" opacity="0.5" />
+  <!-- Magnifying glass -->
+  <circle cx="42" cy="38" r="10" stroke-width="2.5" opacity="0.9" />
+  <line x1="49" y1="45" x2="56" y2="52" stroke-width="3" opacity="0.9" />
+  <!-- Magnifying glass highlight -->
+  <path d="M37 34 C38 32 40 31 42 32" opacity="0.4" />
+</svg>
