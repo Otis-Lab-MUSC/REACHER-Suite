@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="16" fill="#0d1117"/>
+
+  <!-- Left hemisphere outline -->
+  <path
+    d="M 47,10 C 43,8 38,8 33,10 C 28,12 23,16 19,22 C 15,28 13,36 12,44 C 11,52 12,58 15,64 C 18,70 22,76 27,81 C 32,86 37,89 42,91 C 44,92 46,92 47,92"
+    stroke="#00d4d8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"
+  />
+
+  <!-- Right hemisphere outline -->
+  <path
+    d="M 53,10 C 57,8 62,8 67,10 C 72,12 77,16 81,22 C 85,28 87,36 88,44 C 89,52 88,58 85,64 C 82,70 78,76 73,81 C 68,86 63,89 58,91 C 56,92 54,92 53,92"
+    stroke="#00d4d8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"
+  />
+
+  <!-- Center fissure -->
+  <line x1="50" y1="10" x2="50" y2="92" stroke="#00d4d8" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Left hemisphere clip path -->
+  <defs>
+    <clipPath id="clip-left">
+      <path d="M 12,50 C 12,38 14,28 18,22 C 22,16 27,12 33,10 C 38,8 43,8 47,10 L 47,92 C 43,92 38,90 33,86 C 27,82 22,74 18,66 C 14,58 12,54 12,50 Z"/>
+    </clipPath>
+    <clipPath id="clip-right">
+      <path d="M 88,50 C 88,38 86,28 82,22 C 78,16 73,12 67,10 C 62,8 57,8 53,10 L 53,92 C 57,92 62,90 67,86 C 73,82 78,74 82,66 C 86,58 88,54 88,50 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Left hemisphere maze corridors -->
+  <g clip-path="url(#clip-left)" stroke="#00d4d8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <polyline points="16,30 16,22 24,22 24,30"/>
+    <polyline points="20,16 30,16 30,24"/>
+    <polyline points="36,12 36,20 44,20 44,14"/>
+    <polyline points="16,36 24,36 24,44 16,44"/>
+    <polyline points="28,28 28,36 36,36 36,28 44,28"/>
+    <polyline points="38,36 44,36 44,44 38,44 38,52"/>
+    <polyline points="16,50 24,50 24,58 16,58"/>
+    <polyline points="28,44 28,52 20,52"/>
+    <polyline points="30,56 30,64 38,64 38,56 44,56"/>
+    <polyline points="16,64 24,64 24,72 16,72"/>
+    <polyline points="28,68 36,68 36,76 28,76 28,84"/>
+    <polyline points="36,80 44,80 44,72 44,64"/>
+  </g>
+
+  <!-- Right hemisphere maze corridors -->
+  <g clip-path="url(#clip-right)" stroke="#00d4d8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <polyline points="84,30 84,22 76,22 76,30"/>
+    <polyline points="80,16 70,16 70,24"/>
+    <polyline points="64,12 64,20 56,20 56,14"/>
+    <polyline points="84,36 76,36 76,44 84,44"/>
+    <polyline points="72,28 72,36 64,36 64,28 56,28"/>
+    <polyline points="62,36 56,36 56,44 62,44 62,52"/>
+    <polyline points="84,50 76,50 76,58 84,58"/>
+    <polyline points="72,44 72,52 80,52"/>
+    <polyline points="70,56 70,64 62,64 62,56 56,56"/>
+    <polyline points="84,64 76,64 76,72 84,72"/>
+    <polyline points="72,68 64,68 64,76 72,76 72,84"/>
+    <polyline points="64,80 56,80 56,72 56,64"/>
+  </g>
+</svg>
