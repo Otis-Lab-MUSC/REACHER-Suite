@@ -2,8 +2,8 @@ import { Github, Plug, Activity, HardDrive, Layers } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
 import DemoFrame from '../components/shared/DemoFrame'
 
-const BASE = import.meta.env.BASE_URL
 const ACCENT = 'var(--color-accent-labrynth)'
+const BASE = import.meta.env.BASE_URL
 
 const features = [
   {
