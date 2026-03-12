@@ -34,7 +34,7 @@ export default function LandingPage() {
       </section>
 
       {/* System cards */}
-      <section className="w-full max-w-5xl pb-24 grid sm:grid-cols-2 gap-5">
+      <section className="w-full max-w-2xl pb-24 grid sm:grid-cols-1 gap-5">
         {/* Labrynth card */}
         <div
           className="panel-border p-7 flex flex-col gap-4 transition-all duration-200 group"
@@ -67,41 +67,6 @@ export default function LandingPage() {
             style={{ color: 'var(--color-accent-labrynth)' }}
           >
             Explore Labrynth <ArrowRight size={12} />
-          </Link>
-        </div>
-
-        {/* Axplorer card */}
-        <div
-          className="panel-border p-7 flex flex-col gap-4 transition-all duration-200 group"
-          style={{ backgroundColor: 'var(--color-panel)' }}
-          onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--color-accent-axplorer)')}
-          onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--color-border)')}
-        >
-          <div className="flex items-center gap-2">
-            <span
-              className="status-pulse inline-block w-2 h-2 rounded-full"
-              style={{ backgroundColor: 'var(--color-accent-axplorer)', color: 'var(--color-accent-axplorer)' }}
-            />
-            <span className="label-caps text-[0.65rem]" style={{ color: 'var(--color-accent-axplorer)' }}>
-              Data exploration
-            </span>
-          </div>
-          <h2
-            className="text-2xl font-bold tracking-[0.05em] glow-axplorer"
-            style={{ color: 'var(--color-accent-axplorer)' }}
-          >
-            Axplorer
-          </h2>
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text)' }}>
-            Interactive explorer for two-photon imaging data —
-            align sessions, compute PETHs, and export publication-ready figures in minutes.
-          </p>
-          <Link
-            to="/axplorer"
-            className="mt-auto flex items-center gap-2 label-caps text-[0.65rem] transition-colors duration-150 group-hover:gap-3"
-            style={{ color: 'var(--color-accent-axplorer)' }}
-          >
-            Explore Axplorer <ArrowRight size={12} />
           </Link>
         </div>
       </section>

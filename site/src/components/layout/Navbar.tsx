@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 const links = [
   { to: '/', label: 'Home' },
   { to: '/labrynth', label: 'Labrynth' },
-  { to: '/axplorer', label: 'Axplorer' },
 ]
 
 export default function Navbar() {
