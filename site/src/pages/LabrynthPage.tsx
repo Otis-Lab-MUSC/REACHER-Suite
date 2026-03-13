@@ -1,32 +1,43 @@
-import { Github, Plug, Activity, HardDrive, Layers } from 'lucide-react'
+import type { ReactNode } from 'react'
+import { Github, Plug, Activity, HardDrive, Layers, Download, Monitor, Laptop, Terminal } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
 import DemoFrame from '../components/shared/DemoFrame'
 
 const ACCENT = 'var(--color-accent-labrynth)'
+
+type Platform = 'windows' | 'macos' | 'linux'
+
+function detectPlatform(): Platform | null {
+  if (typeof navigator === 'undefined') return null
+  const ua = navigator.userAgent
+  if (/Windows/i.test(ua)) return 'windows'
+  if (/Mac OS X|Macintosh/i.test(ua)) return 'macos'
+  if (/Linux/i.test(ua)) return 'linux'
+  return null
+}
+
+const PLATFORMS: Record<Platform, { label: string; sublabel: string; icon: ReactNode; url: string }> = {
+  windows: {
+    label: 'Windows',
+    sublabel: 'Windows 10 / 11 · x64',
+    icon: <Monitor size={16} />,
+    url: '#', // TODO: replace with GitHub release asset URL
+  },
+  macos: {
+    label: 'macOS',
+    sublabel: 'macOS 12+ · Universal',
+    icon: <Laptop size={16} />,
+    url: '#', // TODO: replace with GitHub release asset URL
+  },
+  linux: {
+    label: 'Linux',
+    sublabel: 'AppImage · x64',
+    icon: <Terminal size={16} />,
+    url: '#', // TODO: replace with GitHub release asset URL
+  },
+}
 const BASE = import.meta.env.BASE_URL
 
-function CodeBlock({ lang, lines }: { lang: string; lines: string[] }) {
-  return (
-    <div className="panel-border overflow-hidden" style={{ backgroundColor: 'var(--color-panel)' }}>
-      <div
-        className="px-4 py-2 border-b label-caps text-[0.6rem]"
-        style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-dim)' }}
-      >
-        {lang}
-      </div>
-      <pre className="px-4 py-4 text-sm leading-loose overflow-x-auto">
-        <code>
-          {lines.map((line, i) => (
-            <div key={i}>
-              <span style={{ color: 'var(--color-text-dim)' }}>$</span>{' '}
-              <span style={{ color: 'var(--color-text)' }}>{line}</span>
-            </div>
-          ))}
-        </code>
-      </pre>
-    </div>
-  )
-}
 
 const features = [
   {
@@ -69,6 +80,68 @@ const questions = [
     a: 'Existing open-source systems (PyBpod, Bonsai, MedPC) are scripting environments or low-level toolkits — they require programming knowledge to configure and run. Labrynth is a product: paradigm selection, device configuration, live monitoring, and data export all happen through a UI. The firmware is pre-compiled and uploaded through the interface; there are no config files to edit or Python environments to manage. The same hardware and data format work whether you use the browser GUI or the terminal CLI.',
   },
 ]
+
+function DownloadSection() {
+  const detected = detectPlatform()
+  const platformKeys: Platform[] = ['windows', 'macos', 'linux']
+
+  return (
+    <section className="w-full max-w-6xl mx-auto mb-16">
+      <p className="label-caps mb-6" style={{ color: 'var(--color-text-dim)' }}>
+        Download
+      </p>
+
+      {detected && (
+        <div className="panel-border p-6 mb-4" style={{ backgroundColor: 'var(--color-panel)' }}>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span style={{ color: ACCENT }}>{PLATFORMS[detected].icon}</span>
+              <div>
+                <p className="text-sm font-semibold tracking-[0.04em]" style={{ color: 'var(--color-text)' }}>
+                  Download for {PLATFORMS[detected].label}
+                </p>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-dim)' }}>
+                  {PLATFORMS[detected].sublabel}
+                </p>
+              </div>
+            </div>
+            <a
+              href={PLATFORMS[detected].url}
+              className="inline-flex items-center gap-2 px-4 py-2 label-caps text-[0.65rem] font-semibold transition-opacity duration-150 hover:opacity-80"
+              style={{ backgroundColor: ACCENT, color: 'var(--color-bg)', borderRadius: 2 }}
+            >
+              <Download size={12} /> Download
+            </a>
+          </div>
+        </div>
+      )}
+
+      <div className="grid grid-cols-3 gap-3">
+        {platformKeys.map(key => {
+          const p = PLATFORMS[key]
+          const isDetected = key === detected
+          return (
+            <a
+              key={key}
+              href={p.url}
+              className="panel-border flex items-center gap-2 px-4 py-3 label-caps text-[0.65rem] transition-colors duration-150"
+              style={{
+                backgroundColor: 'var(--color-panel)',
+                color: isDetected ? ACCENT : 'var(--color-text-dim)',
+                borderColor: isDetected ? ACCENT : 'var(--color-border)',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = ACCENT)}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = isDetected ? ACCENT : 'var(--color-border)')}
+            >
+              {p.icon}
+              {p.label}
+            </a>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
 
 export default function LabrynthPage() {
   return (
@@ -155,26 +228,8 @@ export default function LabrynthPage() {
         </div>
       </section>
 
-      {/* Installation */}
-      <section className="w-full max-w-6xl mx-auto">
-        <p className="label-caps mb-6" style={{ color: 'var(--color-text-dim)' }}>
-          Installation
-        </p>
-        <div className="flex flex-col gap-6">
-          <div>
-            <p className="label-caps text-[0.6rem] mb-2" style={{ color: ACCENT }}>Web GUI</p>
-            <CodeBlock lang="bash" lines={['cd labrynth/web && npm ci', 'npm run dev']} />
-          </div>
-          <div>
-            <p className="label-caps text-[0.6rem] mb-2" style={{ color: ACCENT }}>Terminal CLI</p>
-            <CodeBlock lang="bash" lines={['cd labrynth && pip install -e ".[cli]"', 'reacher-cli']} />
-          </div>
-          <div>
-            <p className="label-caps text-[0.6rem] mb-2" style={{ color: ACCENT }}>Release build</p>
-            <CodeBlock lang="bash" lines={['python build.py']} />
-          </div>
-        </div>
-      </section>
+      {/* Download */}
+      <DownloadSection />
     </div>
   )
 }
