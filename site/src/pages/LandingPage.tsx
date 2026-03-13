@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import GlitchText from '../components/shared/GlitchText'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -42,14 +43,15 @@ export default function LandingPage() {
         <p className="label-caps mb-3" style={{ color: 'var(--color-accent-labrynth)' }}>
           Otis Lab — Reacher Suite
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-3xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-5"
           style={{ color: 'var(--color-text)' }}
         >
           Built for the bench,
           <br />
           <span style={{ color: 'var(--color-accent-labrynth)' }}>not the terminal.</span>
-        </h1>
+        </GlitchText>
         <p className="text-sm sm:text-base max-w-xl leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
           Open-source tools for running and analyzing neuroscience experiments —
           from live behavioral control to interactive data exploration.
@@ -80,7 +82,7 @@ export default function LandingPage() {
             </span>
           </div>
           <h2
-            className="text-2xl font-bold tracking-[0.05em] glow-accent"
+            className="text-2xl font-bold tracking-[0.05em] glow-accent glitch-text"
             style={{ color: 'var(--color-accent-labrynth)' }}
           >
             Labrynth

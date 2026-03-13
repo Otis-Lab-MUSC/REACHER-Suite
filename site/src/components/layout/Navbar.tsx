@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import GlitchText from '../shared/GlitchText'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -19,8 +20,10 @@ export default function Navbar() {
           className="label-caps tracking-widest text-[0.65rem] hover:text-accent transition-colors duration-150"
           style={{ color: 'var(--color-text-dim)' }}
         >
-          <span style={{ color: 'var(--color-accent-labrynth)' }}>REACHER</span>
-          {' '}Suite
+          <GlitchText>
+            <span style={{ color: 'var(--color-accent-labrynth)' }}>REACHER</span>
+            {' '}Suite
+          </GlitchText>
         </NavLink>
 
         {/* Nav links */}

@@ -1,5 +1,6 @@
 import { Github, Cpu, Zap, FileCode, Activity } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
+import GlitchText from '../components/shared/GlitchText'
 
 const ACCENT = '#FF9100'
 
@@ -98,12 +99,13 @@ export default function FirmwarePage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           Arduino firmware
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4"
           style={{ color: ACCENT, textShadow: `0 0 8px ${ACCENT}, 0 0 24px ${ACCENT}40` }}
         >
           Firmware
-        </h1>
+        </GlitchText>
         <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ color: 'var(--color-text)' }}>
           Real-time operant conditioning on Arduino UNO.
         </p>
@@ -128,7 +130,7 @@ export default function FirmwarePage() {
         <div className="flex flex-col gap-6">
           {questions.map(({ q, a }) => (
             <div key={q} className="panel-border p-6" style={{ backgroundColor: 'var(--color-panel)' }}>
-              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em]" style={{ color: ACCENT }}>
+              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em] glitch-text" style={{ color: ACCENT }}>
                 {q}
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text)' }}>

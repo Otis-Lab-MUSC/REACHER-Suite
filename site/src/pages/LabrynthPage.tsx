@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Github, Plug, Activity, HardDrive, Layers, Download, Monitor, Laptop, Terminal } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
 import DemoFrame from '../components/shared/DemoFrame'
+import GlitchText from '../components/shared/GlitchText'
 
 const ACCENT = 'var(--color-accent-labrynth)'
 
@@ -151,12 +152,13 @@ export default function LabrynthPage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           Behavioral control system
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4 glow-accent"
           style={{ color: ACCENT }}
         >
           Labrynth
-        </h1>
+        </GlitchText>
         <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ color: 'var(--color-text)' }}>
           Run head-fixed mouse experiments from your browser.
         </p>
@@ -181,7 +183,7 @@ export default function LabrynthPage() {
         <div className="flex flex-col gap-6">
           {questions.map(({ q, a }) => (
             <div key={q} className="panel-border p-6" style={{ backgroundColor: 'var(--color-panel)' }}>
-              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em]" style={{ color: ACCENT }}>
+              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em] glitch-text" style={{ color: ACCENT }}>
                 {q}
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text)' }}>

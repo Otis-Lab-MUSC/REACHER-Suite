@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Github } from 'lucide-react'
+import GlitchText from '../components/shared/GlitchText'
 
 const ACCENT = 'var(--color-accent-labrynth)'
 
@@ -70,12 +71,13 @@ export default function ContactPage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           Get in touch
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4 glow-accent"
           style={{ color: ACCENT }}
         >
           Contact
-        </h1>
+        </GlitchText>
         <p className="text-base max-w-xl leading-relaxed" style={{ color: 'var(--color-text)' }}>
           Questions about REACHER Suite, collaboration proposals, or bug reports — reach out below.
         </p>

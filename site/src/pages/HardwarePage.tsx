@@ -1,5 +1,6 @@
 import { Github, Box, Wrench, Printer, Package } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
+import GlitchText from '../components/shared/GlitchText'
 
 const ACCENT = '#C084FC'
 
@@ -77,12 +78,13 @@ export default function HardwarePage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           3D-printable rig
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4"
           style={{ color: ACCENT, textShadow: `0 0 8px ${ACCENT}, 0 0 24px ${ACCENT}40` }}
         >
           Hardware
-        </h1>
+        </GlitchText>
         <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ color: 'var(--color-text)' }}>
           Print, assemble, and run. No machinist required.
         </p>
@@ -108,7 +110,7 @@ export default function HardwarePage() {
         <div className="flex flex-col gap-6">
           {questions.map(({ q, a }) => (
             <div key={q} className="panel-border p-6" style={{ backgroundColor: 'var(--color-panel)' }}>
-              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em]" style={{ color: ACCENT }}>
+              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em] glitch-text" style={{ color: ACCENT }}>
                 {q}
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text)' }}>

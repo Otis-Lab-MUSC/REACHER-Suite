@@ -1,5 +1,6 @@
 import { Github, AlignCenter, BarChart2, Download, Brain } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
+import GlitchText from '../components/shared/GlitchText'
 
 const ACCENT = 'var(--color-accent-axplorer)'
 
@@ -47,12 +48,13 @@ export default function AxplorerPage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           Imaging data explorer
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4 glow-axplorer"
           style={{ color: ACCENT }}
         >
           Axplorer
-        </h1>
+        </GlitchText>
         <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ color: 'var(--color-text)' }}>
           Explore two-photon imaging data interactively.
         </p>
@@ -77,7 +79,7 @@ export default function AxplorerPage() {
         <div className="flex flex-col gap-6">
           {questions.map(({ q, a }) => (
             <div key={q} className="panel-border p-6" style={{ backgroundColor: 'var(--color-panel)' }}>
-              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em]" style={{ color: ACCENT }}>
+              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em] glitch-text" style={{ color: ACCENT }}>
                 {q}
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text)' }}>

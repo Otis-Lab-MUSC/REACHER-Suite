@@ -1,5 +1,6 @@
 import { Github, Scan, Zap, Save, FileOutput } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
+import GlitchText from '../components/shared/GlitchText'
 
 const ACCENT = '#F472B6'
 
@@ -96,12 +97,13 @@ export default function RoigbivPage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           ROI segmentation
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4"
           style={{ color: ACCENT, textShadow: `0 0 8px ${ACCENT}, 0 0 24px ${ACCENT}40` }}
         >
           Roigbiv
-        </h1>
+        </GlitchText>
         <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ color: 'var(--color-text)' }}>
           Train a custom cell segmentation model on your own data.
         </p>
@@ -145,7 +147,7 @@ export default function RoigbivPage() {
               className={`panel-border p-6 ${idx > 0 ? 'opacity-40' : ''}`}
               style={{ backgroundColor: 'var(--color-panel)' }}
             >
-              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em]" style={{ color: ACCENT }}>
+              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em] glitch-text" style={{ color: ACCENT }}>
                 {q}
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text)' }}>

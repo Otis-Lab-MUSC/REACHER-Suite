@@ -1,5 +1,6 @@
 import { Github, Layers, Database, TrendingUp, BookMarked } from 'lucide-react'
 import FeatureCard from '../components/shared/FeatureCard'
+import GlitchText from '../components/shared/GlitchText'
 
 const ACCENT = '#38BDF8'
 
@@ -123,12 +124,13 @@ export default function PynapsePage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           Neural data engine
         </p>
-        <h1
+        <GlitchText
+          as="h1"
           className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4"
           style={{ color: ACCENT, textShadow: `0 0 8px ${ACCENT}, 0 0 24px ${ACCENT}40` }}
         >
           Pynapse
-        </h1>
+        </GlitchText>
         <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ color: 'var(--color-text)' }}>
           From raw fluorescence to peri-event tensors in three lines.
         </p>
@@ -153,7 +155,7 @@ export default function PynapsePage() {
         <div className="flex flex-col gap-6">
           {questions.map(({ q, a }) => (
             <div key={q} className="panel-border p-6" style={{ backgroundColor: 'var(--color-panel)' }}>
-              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em]" style={{ color: ACCENT }}>
+              <h3 className="text-sm font-semibold mb-2 tracking-[0.04em] glitch-text" style={{ color: ACCENT }}>
                 {q}
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text)' }}>
