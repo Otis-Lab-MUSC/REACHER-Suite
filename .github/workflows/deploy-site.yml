@@ -25,6 +25,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: otis-lab-musc/labrynth
+          token: ${{ secrets.REACHER_SUITE_SITE_TOKEN }}
           path: labrynth-src
 
       - uses: actions/setup-node@v4
