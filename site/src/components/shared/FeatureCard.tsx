@@ -26,7 +26,7 @@ export default function FeatureCard({
     >
       <div style={{ color: accent }}>{icon}</div>
       <h3
-        className="font-semibold text-sm tracking-[0.05em]"
+        className="font-semibold text-sm tracking-[0.05em] glitch-text"
         style={{ color: 'var(--color-text)' }}
       >
         {title}
