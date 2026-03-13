@@ -8,7 +8,6 @@ import ContactPage from './pages/ContactPage'
 
 function AppShell() {
   const location = useLocation()
-
   return (
     <>
       <CyberpunkGridBackground />

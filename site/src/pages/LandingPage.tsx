@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import GlitchText from '../components/shared/GlitchText'
@@ -28,8 +29,17 @@ const publications = [
 
 export default function LandingPage() {
   const navigate = useNavigate()
+  const [corrupted] = useState(() => sessionStorage.getItem('rs-booted') !== '1')
+
+  function handleCorruptEnd() {
+    sessionStorage.setItem('rs-booted', '1')
+  }
+
   return (
-    <div className="relative z-10 flex flex-col items-center px-4">
+    <div
+      className={`relative z-10 flex flex-col items-center px-4${corrupted ? ' page-corrupt' : ''}`}
+      onAnimationEnd={corrupted ? handleCorruptEnd : undefined}
+    >
       {/* Hero */}
       <section className="w-full max-w-6xl pt-16 sm:pt-24 pb-12 flex flex-col items-center text-center">
         {/* Banner */}
