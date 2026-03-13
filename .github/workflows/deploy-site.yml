@@ -22,11 +22,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/checkout@v4
+        with:
+          repository: otis-lab-musc/labrynth
+          path: labrynth-src
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: site/package-lock.json
+          cache-dependency-path: |
+            site/package-lock.json
+            labrynth-src/web/package-lock.json
+
+      - name: Install labrynth deps
+        run: npm ci
+        working-directory: labrynth-src/web
+
+      - name: Build labrynth demo
+        run: npm run build:demo
+        working-directory: labrynth-src/web
+        env:
+          VITE_BASE: ./
+
+      - name: Sync demo into site
+        run: |
+          rm -rf site/public/labrynth-demo
+          mkdir -p site/public/labrynth-demo
+          cp -r labrynth-src/web/dist/. site/public/labrynth-demo/
 
       - name: Install dependencies
         run: npm ci
