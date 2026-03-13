@@ -152,13 +152,21 @@ export default function LabrynthPage() {
         <p className="label-caps mb-3" style={{ color: ACCENT }}>
           Behavioral control system
         </p>
-        <GlitchText
-          as="h1"
-          className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight mb-4 glow-accent"
-          style={{ color: ACCENT }}
-        >
-          Labrynth
-        </GlitchText>
+        <div className="flex items-center gap-3 mb-4">
+          <img
+            src={`${BASE}labrynth-logo.svg`}
+            alt=""
+            className="w-10 h-10 sm:w-12 sm:h-12"
+            aria-hidden="true"
+          />
+          <GlitchText
+            as="h1"
+            className="text-4xl sm:text-5xl font-bold tracking-[0.04em] leading-tight glow-accent"
+            style={{ color: ACCENT }}
+          >
+            Labrynth
+          </GlitchText>
+        </div>
         <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ color: 'var(--color-text)' }}>
           Run head-fixed mouse experiments from your browser.
         </p>
